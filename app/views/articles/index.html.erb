@@ -1,0 +1,13 @@
+<h1>Welcome to Articles site</h1>
+<h3>Added Articles Are: </h3>
+<hr/>
+<% @articles.each do |a| %>
+	<div>
+		<p><b>Name: </b><%= a.name%></p>
+		<p><b>Author(s): </b><%= a.authors %></p>
+		<p><b>Description: </b><%= a.description%></p>
+		<p><b><%= link_to "Edit", edit_article_path(a), :class => "btn btn-default"%></b>
+		<b><%= link_to "Delete", article_path(a), method: :delete, data: {confirm:"Are you sure?"} ,:class => "btn btn-default"%></b></p>
+	</div>
+	<hr/>
+<% end %>

@@ -1,0 +1,24 @@
+<%= form_for @article do |a| %>
+<% if @article.errors.any? %>
+	<b>Due to following errors article couldn't added to database</b>
+	<ul>
+		<% @article.errors.full_messages.each do|msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+	<p>
+		<%= a.label :name %><br/>
+		<%= a.text_field :name %>
+	</p>
+	<p>
+		<%= a.label :authors %><br/>
+		<%= a.text_field :authors %>
+	</p>
+	<p>
+		<%= a.label :description %><br/>
+		<%= a.text_area :description %>
+	</p>
+	<%= a.submit %>
+
+<% end %>
