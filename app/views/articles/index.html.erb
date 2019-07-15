@@ -8,6 +8,10 @@
 		<p><b>Description: </b><%= a.description%></p>
 		<p><b><%= link_to "Edit", edit_article_path(a), :class => "btn btn-default"%></b>
 		<b><%= link_to "Delete", article_path(a), method: :delete, data: {confirm:"Are you sure?"} ,:class => "btn btn-default"%></b></p>
+		<div class="container">
+      <b>Created by: </b> <%= a.user.name %>
+      <b>Time: </b><%= time_ago_in_words(a.created_at)%> ago, Updated: <%= time_ago_in_words(a.updated_at)%>
+		</div>
 	</div>
 	<hr/>
 <% end %>
