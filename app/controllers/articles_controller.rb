@@ -11,8 +11,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
+		
 		#render plain: params[:article].inspect
+		#render plain: User.last.id.inspect
 		@article = Article.new(params_control)
+		@article.user = User.last
 		if(@article.save)		
 			redirect_to article_path(@article)
 		else
